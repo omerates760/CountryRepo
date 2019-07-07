@@ -40,7 +40,7 @@ class CountryFragment : Fragment() {
 
                     val repoList: List<Results> = response.body()!!
                     repoList.forEach {
-                        v.txt_country_name.text = it.name
+                        //v.txt_country_name.text = it.name
                         v.txt_country_alpha2.text = it.alpha2Code
                         v.txt_country_alpha3.text = it.alpha2Code
                         v.txt_country_calling.text = it.callingCodes[0]
