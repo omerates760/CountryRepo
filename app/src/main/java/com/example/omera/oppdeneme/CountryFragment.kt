@@ -13,7 +13,6 @@ import retrofit2.Response
 
 
 class CountryFragment : Fragment() {
-    val ctx=activity
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v: View = inflater.inflate(R.layout.country_fragment, container, false)
 
@@ -40,14 +39,14 @@ class CountryFragment : Fragment() {
 
                     val repoList: List<Results> = response.body()!!
                     repoList.forEach {
-                        //v.txt_country_name.text = it.name
+                        v.txt_country_name.text = it.name
                         v.txt_country_alpha2.text = it.alpha2Code
-                        v.txt_country_alpha3.text = it.alpha2Code
-                        v.txt_country_calling.text = it.callingCodes[0]
+                        v.txt_country_alpha3.text = it.alpha3Code
+                        v.txt_country_calling.text ="+${it.callingCodes[0]}"
                         v.txt_country_capital.text = it.capital
                         v.txt_country_region.text = it.region
                         v.txt_country_population.text = it.population
-                        // v.txt_country_latlng.text=it.latlng.latitude+"-"+it.latlng.longitude
+                        v.txt_country_latlng.text=it.latlng[0].toString()+","+it.latlng[1].toString()
                         v.txt_country_area.text = it.area
                         Utils.fetchSvg(activity?.applicationContext!!,it.flag, v.img_country_flag as ImageView)
 
